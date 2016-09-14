@@ -1,0 +1,36 @@
+server:
+  port: 8000
+  
+spring:
+  application:
+    name: microservice-provider-user #项目名称尽量小写
+
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      
+
+  datasource:
+        name: microservice
+        url: jdbc:mysql://localhost:3306/microservice?useUnicode=true&characterEncoding=utf-8
+        username: microservice
+        password: microservice
+        
+  
+logging:
+    level:
+      root: INFO
+      org.hibernate: INFO
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+      org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+
+eureka:
+     client:
+       serviceUrl:
+         defaultZone: http://localhost:8761/eureka  #指定注册中心ip
+       
+     instance:
+       preferIpAddress: true
+      
